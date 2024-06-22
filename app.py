@@ -5,6 +5,9 @@ from src.data_processing import (load_config, create_spark_session, load_data, p
                                  get_best_teams)
 from src.visualization import plot_team_performance, display_season_ranking
 
+# Set page layout to wide
+st.set_page_config(layout="wide")
+
 # Load configuration
 config = load_config('config/config.yaml')
 
@@ -31,7 +34,7 @@ df_best_team, df_top_three = get_best_teams(df_ranked)
 
 
 # Streamlit UI
-st.title("Bundesliga Team Performance Analysis Dashboard")
+st.markdown("<h1 style='text-align: center; color: black;'>Bundesliga Team Performance Analysis Dashboard</h1>", unsafe_allow_html=True)
 ################################################## Generate figures ##################################################
 
 # Plot the performance of the selected team over multiple seasons
