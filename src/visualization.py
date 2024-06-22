@@ -39,10 +39,16 @@ def display_season_ranking(df_ranked):
 
     # Filter data for selected season
     season_data = df_ranked_pd[df_ranked_pd['Season'] == selected_season].sort_values(by='TeamPosition')
+    
+   # Format the values to the required decimal places
+    season_data['winPercentage'] = season_data['winPercentage'].apply(lambda x: f"{x:.2f}%")
+    season_data['GoalDiff'] = season_data['GoalDiff'].apply(lambda x: f"{x:.0f}")
+    season_data['GoalsScored'] = season_data['GoalsScored'].apply(lambda x: f"{x:.0f}")
+    season_data['GoalsAgainst'] = season_data['GoalsAgainst'].apply(lambda x: f"{x:.0f}")
 
     # Display rankings as a table
     st.write(f"Team Rankings for Season {selected_season}")
-    st.table(season_data[['TeamPosition', 'Team', 'winPercentage', 'GoalDiff']])
+    st.table(season_data[['TeamPosition', 'Team', 'winPercentage', "Win","Loss", "Tie", 'GoalDiff', 'GoalsScored',"GoalsAgainst",]].reset_index(drop=True))
 
     # Optionally, display a bar chart of the rankings
     fig_rankings = px.bar(

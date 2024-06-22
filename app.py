@@ -30,6 +30,8 @@ df_best_team, df_top_three = get_best_teams(df_ranked)
 #top_three_figures = plot_top_three_teams(df_top_three)
 
 
+# Streamlit UI
+st.title("Bundesliga Team Performance Analysis Dashboard")
 ################################################## Generate figures ##################################################
 
 # Plot the performance of the selected team over multiple seasons
