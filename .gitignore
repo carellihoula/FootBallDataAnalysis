@@ -94,3 +94,7 @@ airflow.cfg
 airflow/
 dags/
 logs/
+
+#streamlit
+.streamlit/
+secrets.toml

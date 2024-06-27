@@ -2,6 +2,8 @@ import yaml
 from pyspark.sql import SparkSession
 from pyspark.sql.functions import when, col, sum, round, rank
 from pyspark.sql import Window
+from pandas_gbq import to_gbq, read_gbq
+
 
 # Extract configuration from a yaml file
 def load_config(config_path):
@@ -75,3 +77,15 @@ def get_best_teams(df):
     df_best_team = df.filter(col("TeamPosition") == 1)
     df_top_three = df.filter(col("TeamPosition") <= 3)
     return df_best_team, df_top_three
+
+
+#Save the DataFrame to a BigQuery table.
+def save_to_bigquery(df, table_id, project_id, credentials):
+    """
+    Args:
+    df (DataFrame): DataFrame to be saved.
+    table_id (str): BigQuery table identifier in the format 'dataset.table'.
+    project_id (str): Google Cloud project ID.
+    credentials (service_account.Credentials): Google Cloud service account credentials.
+    """
+    to_gbq(df, table_id, project_id=project_id, credentials=credentials, if_exists='replace')
