@@ -59,7 +59,7 @@ cython_debug/
 .envrc
 *.env
 venv/
-env/
+myenv/
 
 # MyPy
 .mypy_cache/
