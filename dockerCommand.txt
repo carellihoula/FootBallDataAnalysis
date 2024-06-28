@@ -1,0 +1,10 @@
+
+deploy to google cloud ===>
+
+
+docker build -t football_bundesliga .
+
+docker tag football_bundesliga gcr.io/coral-melody-399118/football_bundesliga
+docker push gcr.io/coral-melody-399118/football_bundesliga
+
+gcloud run deploy football-bundesliga-app --image gcr.io/coral-melody-399118/football_bundesliga --platform managed --region us-central1 --allow-unauthenticated
