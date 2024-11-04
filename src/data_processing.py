@@ -10,9 +10,11 @@ def load_config(config_path):
     with open(config_path, 'r') as file:
         return yaml.safe_load(file)
 
-# Create a Spark session
+
+
 def create_spark_session():
-    return SparkSession.builder.appName("Data Analysis").getOrCreate()
+    conf = SparkConf().set("spark.driver.memory", "1g").set("spark.executor.memory", "1g")
+    return SparkSession.builder.appName("Data Analysis").config(conf=conf).getOrCreate()
 
 # Extract data from the CSV file
 def load_data(spark, data_path):
