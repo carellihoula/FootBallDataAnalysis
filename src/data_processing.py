@@ -1,3 +1,4 @@
+from pyspark import SparkConf
 import yaml
 from pyspark.sql import SparkSession
 from pyspark.sql.functions import when, col, sum, round, rank
