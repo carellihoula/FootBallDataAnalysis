@@ -1,1 +1,1 @@
-data_path: "data/raw/football_matches.csv"
+data_path: "src/data/raw/football_matches.csv"
