@@ -1,6 +1,6 @@
 import streamlit as st
 import yaml
-from pyspark.sql import SparkSession
+import pandas as pd
 from data_processing import preprocess_data, filter_bundesliga, aggregate_team_stats, calculate_additional_metrics, get_best_teams
 from visualization import plot_team_performance, display_season_ranking
 
@@ -30,17 +30,11 @@ def load_config(config_path):
 
 config = load_config('config/config.yaml')
 
-# Create Spark session
-def create_spark_session():
-    return SparkSession.builder.appName("Data Analysis").getOrCreate()
-
-spark = create_spark_session()
-
 # Load data
-def load_data(spark, data_path):
-    return spark.read.format('csv').options(header='True').load(data_path)
+def load_data(data_path):
+    return pd.read_csv(data_path)
 
-df_matches = load_data(spark, config['data_path'])
+df_matches = load_data(config['data_path'])
 
 ################################################## ETL Process ##################################################
 
