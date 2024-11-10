@@ -38,10 +38,13 @@ jobs:
         run: |
           curl -sSL https://railway.app/install.sh | bash
           echo "${HOME}/.railway/bin" >> $GITHUB_PATH
-      # Create railway.json to link the project
-      - name: Create railway.json for Project Linking
+
+      # 6. Lier le projet Railway manuellement avec l'ID de projet
+      - name: Link Railway Project
+        env:
+          RAILWAY_API_TOKEN: ${{ secrets.RAILWAY_TOKEN }}
         run: |
-          echo '{ "project": "${{ secrets.RAILWAY_PROJECT_ID }}" }' > railway.json
+          railway link 15d1c7ae-e90c-49bf-ba94-beca3ff76626
 
       # Deploy to Railway
       - name: Deploy to Railway
