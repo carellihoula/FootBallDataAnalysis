@@ -44,7 +44,7 @@ jobs:
         env:
           RAILWAY_API_TOKEN: ${{ secrets.RAILWAY_TOKEN }}
         run: |
-          railway link --project ${{ secrets.RAILWAY_PROJECT_ID }} --environment ${{ secrets.RAILWAY_ENVIRONMENT }}
+          railway link --project ${{ secrets.RAILWAY_PROJECT_ID }} --team ${{ secrets.RAILWAY_TEAM }} --environment ${{ secrets.RAILWAY_ENVIRONMENT }}
 
       # Deploy to Railway
       - name: Deploy to Railway
