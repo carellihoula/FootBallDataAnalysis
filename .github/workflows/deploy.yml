@@ -27,7 +27,7 @@ jobs:
         with:
           context: .
           push: true
-          tags: carelloula10/football_bundesliga
+          tags: carellihoula10/football_bundesliga
 
       # Deploy to Railway
       - name: Deploy to Railway
