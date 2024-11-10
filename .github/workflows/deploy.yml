@@ -39,13 +39,6 @@ jobs:
           curl -sSL https://railway.app/install.sh | bash
           echo "${HOME}/.railway/bin" >> $GITHUB_PATH
 
-      # 6. Lier le projet Railway automatiquement avec l'ID de projet
-      - name: Link Railway Project
-        env:
-          RAILWAY_API_TOKEN: ${{ secrets.RAILWAY_TOKEN }}
-        run: |
-          railway link --project ${{ secrets.RAILWAY_PROJECT_ID }} --team ${{ secrets.RAILWAY_TEAM }} --environment ${{ secrets.RAILWAY_ENVIRONMENT }}
-
       # 6. Déploiement direct sur Railway sans `railway link`
       - name: Deploy to Railway
         env:
