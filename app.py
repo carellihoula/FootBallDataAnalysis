@@ -47,7 +47,7 @@ df_best_team, df_top_three = get_best_teams(df_ranked)
 
 ################################################## Streamlit UI ##################################################
 
-st.markdown("<h1 style='text-align: center; color: black;'>Bundesliga Team Performance Analysis Dashboard</h1>", unsafe_allow_html=True)
+st.markdown("<h1 style='text-align: center; color: black;'>Bundesliga Team Performance Analysis Dashboard.</h1>", unsafe_allow_html=True)
 
 # Call display functions
 plot_team_performance(df_ranked)
