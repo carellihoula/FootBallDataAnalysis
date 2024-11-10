@@ -14,8 +14,7 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Copier le contenu de votre application dans le répertoire de travail
 COPY . .
 
-# Exposer le port sur lequel Streamlit fonctionne
-# Exposer le port 8080
+# Exposer le port 8080 pour Streamlit
 EXPOSE 8080
 
 # Commande pour exécuter Streamlit sur le port 8080
