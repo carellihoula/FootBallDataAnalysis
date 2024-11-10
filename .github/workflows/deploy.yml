@@ -29,6 +29,15 @@ jobs:
           push: true
           tags: carellihoula10/football_bundesliga
 
+      # Install Railway CLI
+      - name: Install Railway CLI
+        run: |
+          curl -fsSL https://railway.app/install.sh | sh
+          echo "${HOME}/.railway/bin" >> $GITHUB_PATH
+        shell: bash
+      - name: Verify Railway CLI Installation
+        run: railway --version
+
       # Deploy to Railway
       - name: Deploy to Railway
         env:
